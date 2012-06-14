@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      upload:
+        file_url: File

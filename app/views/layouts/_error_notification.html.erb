@@ -1,0 +1,11 @@
+<% if target.errors.any? %>  
+<div class="alert alert-error fade in">
+	<!--<a class="close" data-dismiss="alert" href="#">&times;</a>-->
+	<h2><%= pluralize(target.errors.count, "error") %> prohibited this <%= target.class.model_name.human  %> from being saved:</h2>  
+	<ul>  
+		<% target.errors.full_messages.each do |msg| %>  
+		<li><%= msg %></li>  
+		<% end %>  
+	</ul>
+</div>
+<% end %>
