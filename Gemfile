@@ -48,3 +48,7 @@ gem "simplecov", :require => false, :group => :test
 gem "compass_twitter_bootstrap", :git => "git://github.com/vwall/compass-twitter-bootstrap.git", :group => :assets
 gem "simple_form"
 gem "country_select"
+
+# File upload
+gem 'aws-sdk', '~> 1.3.4'
+gem "paperclip", "~> 3.0"
