@@ -1,2 +1,4 @@
-<h1>Uploads#show</h1>
-<p>Find me in app/views/uploads/show.html.erb</p>
+<div class="row">
+	<p><%= link_to @upload.file_file_name, @upload.file.url %></p>
+	<p><%= simple_format @upload.description %></p>
+</div>

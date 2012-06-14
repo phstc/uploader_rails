@@ -1,2 +1,15 @@
-<h1>Uploads#new</h1>
-<p>Find me in app/views/uploads/new.html.erb</p>
+<div class="content">
+<%= simple_form_for @upload, :html => { :class => 'form-vertical', multipart: true } do |f| %>
+	<% if f.error_notification %>
+		<div class="alert alert-error fade in">
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<%= f.error_notification %>
+		</div>
+	<% end %>
+	<%= f.input :file, as: :file %>
+	<%= f.input :description, as: :text %>
+	<div class="form-actions">
+		<%= f.button :submit, :class => 'primary' %>
+	</div>
+<% end %>
+</div>

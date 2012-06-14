@@ -13,3 +13,32 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+# Added by gemignore. Snippet 'Rails'
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+
+# Added by gemignore. Snippet 'Global/OSX'
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
