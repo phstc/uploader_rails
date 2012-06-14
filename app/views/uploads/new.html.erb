@@ -8,7 +8,7 @@
 		<label class="file optional control-label" for="upload_file">File</label>
 		<div class="controls">
 			<input class="file optional" id="upload" name="upload" type="file"><br/>
-			<span id="upload_percentage"></span>&nbsp;<span id="upload_file_path"></span>
+			<span id="upload_percentage"></span>&nbsp;<span id="upload_file_path"><%= link_to_if @upload.file_url.present?, @upload.file_url %></span>
 		</div>
 	</div>
 </form>
