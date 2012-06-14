@@ -1,4 +1,3 @@
-<div class="content">
 <%= simple_form_for @upload, :html => { :class => 'form-vertical', multipart: true } do |f| %>
 	<% if f.error_notification %>
 		<div class="alert alert-error fade in">
@@ -12,4 +11,3 @@
 		<%= f.button :submit, :class => 'primary' %>
 	</div>
 <% end %>
-</div>

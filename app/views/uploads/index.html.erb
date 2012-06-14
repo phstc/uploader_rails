@@ -1,20 +1,20 @@
 <div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>File</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @uploads.each do | upload | %>
-				<tr>
-					<td><%= link_to upload.id, upload_path(upload) %></td>
-					<td><%= link_to upload.file_file_name, upload.file.url %></td>
-					<td><%= truncate upload.description, length: 40 %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @uploads.each do | upload | %>
+			<tr>
+				<td><%= link_to upload.id, upload_path(upload) %></td>
+				<td><%= link_to upload.file_file_name, upload.file.url %></td>
+				<td><%= truncate upload.description, length: 40 %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
