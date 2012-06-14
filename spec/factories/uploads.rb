@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :upload do
     description "MyText"
+    file_url "http://simpsons.com/home.jpg"
   end
 end

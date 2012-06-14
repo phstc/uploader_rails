@@ -3,5 +3,5 @@
 	<li class="active">#<%= @upload.id %></li>
 </ul>
 	
-<p><strong>File</strong><br/> <%= link_to @upload.file_file_name, @upload.file.url %></p>
+<p><strong>File</strong><br/> <%= link_to @upload.file_url, @upload.file_url %></p>
 <p><strong>Description</strong><br/> <%= simple_format @upload.description %></p>

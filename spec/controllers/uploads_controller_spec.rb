@@ -25,7 +25,8 @@ describe UploadsController do
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      upload = Factory :upload
+      get 'show', id: upload.id
       response.should be_success
     end
   end

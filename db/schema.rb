@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614220405) do
+ActiveRecord::Schema.define(:version => 20120614221337) do
 
   create_table "uploads", :force => true do |t|
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "file_url"
   end
 
 end

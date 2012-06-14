@@ -15,7 +15,7 @@
 		<% @uploads.each do | upload | %>
 		<tr>
 			<td><%= link_to upload.id, upload_path(upload) %></td>
-			<td><%= link_to upload.file_file_name, upload.file.url %></td>
+			<td><%= link_to upload.file_url, upload.file_url %></td>
 			<td><%= truncate upload.description, length: 40 %></td>
 		</tr>
 		<% end %>
