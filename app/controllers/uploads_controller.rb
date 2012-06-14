@@ -10,7 +10,8 @@ class UploadsController < ApplicationController
   def create
     @upload = Upload.new(params[:upload])
     if @upload.save
-      redirect_to upload_path(@upload)
+      # redirect_to upload_path(@upload)
+      render text: '{success:true}'
     else
       render :new
     end
