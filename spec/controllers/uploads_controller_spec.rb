@@ -18,13 +18,13 @@ describe UploadsController do
 
   describe "POST 'create'" do
     it "returns http success" do
-      post :create, upload: Factory.attributes_for(:upload)
+      post :create, upload: FactoryGirl.attributes_for(:upload)
       response.should redirect_to(upload_path(Upload.last))     
     end
     
     it "should create a new upload" do
       expect {
-         post :create, upload: Factory.attributes_for(:upload)
+         post :create, upload: FactoryGirl.attributes_for(:upload)
        }.to change(Upload, :count).by(1)       
     end
     
@@ -36,7 +36,7 @@ describe UploadsController do
 
   describe "GET 'show'" do
     it "returns http success" do
-      upload = Factory :upload
+      upload = FactoryGirl.create :upload
       get 'show', id: upload.id
       response.should be_success
     end
