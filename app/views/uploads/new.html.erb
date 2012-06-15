@@ -1,6 +1,3 @@
-<script src="http://ec2-23-22-70-95.compute-1.amazonaws.com/socket.io/socket.io.js"></script>
-<%= javascript_include_tag "uploads" %>
-
 <ul class="breadcrumb">
 	<li><%= link_to "Uploads", uploads_path %> <span class="divider">/</span></li>
 	<li class="active">New</li>
@@ -23,7 +20,10 @@
 <%= f.input :file_url, as: :hidden %>
 <%= f.input :description, as: :text, input_html: {class: "input-xlarge", rows: 10} %>
 <div class="form-actions">
-	<%= f.button :submit, :class => 'primary' %>
+	<%= f.button :submit, :class => 'btn-primary' %>
+	<%= link_to "Cancel", uploads_path, class: "btn" %>
 </div>
 <% end %>
 
+<script src="http://ec2-23-22-70-95.compute-1.amazonaws.com/socket.io/socket.io.js"></script>
+<%= javascript_include_tag "uploads" %>

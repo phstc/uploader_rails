@@ -5,3 +5,7 @@
 	
 <p><strong>File</strong><br/> <%= link_to @upload.file_url, @upload.file_url %></p>
 <p><strong>Description</strong><br/> <%= simple_format @upload.description %></p>
+
+<div class="well">
+	<%= link_to "Back", uploads_path, class: "btn" %>
+</div>
