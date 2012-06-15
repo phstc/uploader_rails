@@ -69,7 +69,7 @@ The Rails version is hosted on Heroku.
 
 To restrict the upload there are two trivials ways to do it or more depends on the context.
 
-If the project are under the same domain/subdomain, the session can be shared, it means that ```user_id``` will be available in Node.js and Rails.
+If the project are under the same domain/subdomain, the session can be shared, it means that ```user_id``` can be available in Node.js and Rails.
 
 Other approach is to use a ```security_hash```, something like that ```security_hash = md5(private_key + user_id)```.
 
