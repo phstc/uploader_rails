@@ -1,3 +1,6 @@
+<script src="http://ec2-23-22-70-95.compute-1.amazonaws.com/socket.io/socket.io.js"></script>
+<%= javascript_include_tag "uploads" %>
+
 <ul class="breadcrumb">
 	<li><%= link_to "Uploads", uploads_path %> <span class="divider">/</span></li>
 	<li class="active">New</li>
@@ -24,45 +27,3 @@
 </div>
 <% end %>
 
-<script src="http://ec2-23-22-70-95.compute-1.amazonaws.com/socket.io/socket.io.js"></script>
-
-<script>
-$(function(){
-	var uploaderURL = "http://ec2-23-22-70-95.compute-1.amazonaws.com"
-	var socket = io.connect(uploaderURL + ":80/");
-	socket.on('connect', function () {
-		var formAction = uploaderURL + "/upload?socketid=" + socket.socket.sessionid;
-
-		$("#form_upload").attr("action", formAction);
-
-		socket.on('percentage', function (percentage) {
-			showUploadPercentage(percentage);
-		});
-
-		socket.on('uploaded_file', function (file) {
-			showUploadFilePath(file);
-		});
-	});
-
-	$("#upload").change(function(){
-		showUploadPercentage(0);
-		showUploadFilePath();
-		$("#form_upload").submit();
-		return true;
-	});
-
-	var showUploadPercentage = function(percentage){
-		$("#upload_percentage").html(percentage + "%");
-	};
-
-	var showUploadFilePath = function(file){
-		var filePath = "";
-		if(file){
-			var fullFilePath = uploaderURL + file.path;
-			$("#upload_file_url").val(fullFilePath);
-			filePath = '<a href="' + fullFilePath + '">' + fullFilePath + '</a>';
-		}
-		$("#upload_file_path").html(filePath);
-	};
-});
-</script>
