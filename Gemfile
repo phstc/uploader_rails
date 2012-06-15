@@ -44,6 +44,7 @@ gem "therubyracer"
 gem "compass-rails"
 gem "factory_girl_rails", :group => ["development", "test"]
 gem "rspec-rails", :group => ["development", "test"]
+gem "capybara", group: ["test"]
 gem "simplecov", :require => false, :group => :test
 gem "compass_twitter_bootstrap", :git => "git://github.com/vwall/compass-twitter-bootstrap.git", :group => :assets
 gem "simple_form"
