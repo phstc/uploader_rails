@@ -5,12 +5,12 @@
 
 <%= render "layouts/error_notification", target: @upload %>
 
-<form action="/" enctype="multipart/form-data" method="post" id="form_upload" target="iframe_upload">
+<form action="/" enctype="multipart/form-data" method="post" id="form_upload" target="iframe_upload" data-security_hash="<%= @upload.credential_security_hash%>" data-timestamp="<%= @upload.credential_timestamp %>">
 	<div class="control-group file optional">
 		<label class="file optional control-label" for="upload_file">* File</label>
 		<div class="controls">
 			<input class="file optional" id="upload" name="upload" type="file"><br/>
-			<span id="upload_percentage"></span>&nbsp;<span id="upload_file_path"><%= link_to_if @upload.file_url.present?, @upload.file_url %></span>
+			<span id="upload_error"></span><span id="upload_percentage"></span>&nbsp;<span id="upload_file_path"><%= link_to_if @upload.file_url.present?, @upload.file_url %></span>
 		</div>
 	</div>
 </form>
