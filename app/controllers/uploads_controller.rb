@@ -1,3 +1,4 @@
+require 'upload_credential'
 class UploadsController < ApplicationController
   def index
     @uploads = Upload.all
