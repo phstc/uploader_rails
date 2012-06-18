@@ -18,8 +18,9 @@ $ ->
 			showUploadFilePath(file)
 
 	$('#upload').change ->
-		showUploadPercentage 0
-		showUploadFilePath()
+		$('#upload_percentage').html ''
+		$('#upload_error').html ''
+		$('#upload_file_path').html ''
 		$('#form_upload').submit()
 
 	showUploadPercentage = (percentage) ->
@@ -29,9 +30,7 @@ $ ->
 		$('#upload_error').html message
 
 	showUploadFilePath = (file) ->
-		filePath = ''
-		if file
-			fullFilePath = "#{uploaderURL}#{file.path}" 
-			$('#upload_file_url').val fullFilePath
-			filePath = "<a href=\"#{fullFilePath}\">#{fullFilePath}</a>"
+		fullFilePath = "#{uploaderURL}#{file.path}" 
+		$('#upload_file_url').val fullFilePath
+		filePath = "<a href=\"#{fullFilePath}\">#{fullFilePath}</a>"
 		$('#upload_file_path').html filePath
