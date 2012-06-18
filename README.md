@@ -1,4 +1,4 @@
-Firstly, thank you for the opportunity, I really enjoyed to learn more about uploading. Before I used to create simple form uploads, but to achieve the Challenge objectives "create a form upload with progress feedback, without Apache or Nginx modules" I needed to learn, it was really cool.
+Firstly, thank you for the opportunity, I really enjoyed to learn more about uploading. Before I used to create simple form uploads, but to achieve the Challenge objectives "create a form upload with progress feedback, without Apache or Nginx modules", I needed to investigate more about upload, it was really cool.
 
 I decided to split this project into small projects, the [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and the [Uplader client in Rails](https://github.com/phstc/uploader_rails). Kind of System of Systems. Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
 
@@ -8,10 +8,10 @@ I decided to split this project into small projects, the [Uploader in Node.js](h
 * Click in the menu Uploads -> New Upload
     1. A socket.io connection is opened 
 * When the user Select a file
-    1. The CoffeeScript submits a form to an hidden iFrame, targeting to the Node.js Uploader
+    1. The Client submits a form to an hidden iFrame, targeting to the Node.js Uploader
     2. While Node.js is receiveing the upload buffer, it emits the percentage received to the client
     3. The client receives the upload percentage and update the view
-    4. When the upload is finished the CoffeeScript sets an hidden input with the File Url
+    4. When the upload is finished the Client sets an hidden input with the File Url
 * The user fill the description
 * Click in save
 * ...
@@ -67,9 +67,12 @@ The Rails version is hosted on Heroku.
 
 ##Restrict the upload
 
-To restrict the upload there are two trivials ways to do it or more depends on the context.
+<del>To restrict the upload there are two trivials ways to do it or more depends on the context.</del>
 
-If the project are under the same domain/subdomain, the session can be shared, it means that ```user_id``` can be available in Node.js and Rails.
+<del>If the project are under the same domain/subdomain, the session can be shared, it means that ```user_id``` can be available in Node.js and Rails.</del>
 
-Other approach is to use a ```security_hash```, something like that ```security_hash = md5(private_key + user_id)```.
+<del>Other approach is to use a ```security_hash```, something like that ```security_hash = md5(private_key + user_id)```.</del>
 
+As I decided to develop this Challenge, splitting in Rails for the Client and Node.js for Uploader. I felt that I didn't write much code, Rails makes CRUD operations easy, Node.js makes the upload easy, mixing both == less code.
+
+Then I decided to write the security_hash mechanism, to ensure that the upload request is valid. Client and Uploader know the SECRET_KEY, all upload request must contain security_hash ```md5(SECRET_KEY + timestamp)``` and timestamp.
