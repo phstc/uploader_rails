@@ -20,7 +20,7 @@ I decided to split this project into small projects, the [Uploader in Node.js](h
 
 ###Why Node.js?
 
-I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tried [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version. But in IE7+ the progress feedback didn't work, I also tried other plugins and I noticed the same problem. Only plugins entirely in Flash worked (usually have intrusive UI) then I decided to keep it in Node.js.
+I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tried [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version. But in IE7+ the progress feedback didn't work. I also tried other plugins and I noticed the same problem. Only plugins entirely in Flash worked (usually have intrusive UI) then I decided to keep it in Node.js.
 
 ###Server
 
@@ -33,17 +33,28 @@ I like this post "recipe", it makes the server similar as a PaaS, but to do it m
 
 Just to parse the form data.
 
-####[zombie](https://github.com/assaf/zombie)
+####[mocha](https://github.com/visionmedia/mocha)
 
-I tried to use zombie to test the full stack, but it didn't work with iFrame, even without the iFrame I got an error ```TypeError: Cannot call method 'dispatchEvent' of undefined```. I like Node.js, but sometimes it makes hard things easy and easy things hard. 
+For tests. 
 
 ####[node-static](https://github.com/cloudhead/node-static)
 
-I used the Node.js to serve the uploaded files. I would like to use Nginx to serve the static content, but even with ```proxy_pass``` + ```proxy_buffering off```, Nginx still buffering the upload, it doesn't allow the Node.js process to "stream" the upload. For a quick solution, I removed Nginx and used Node.js to serve the static content uploaded by the Uploader client.
+I used the Node.js to serve the uploaded files. I would like to use Nginx to serve the static content, but even with ```proxy_buffering off```, Nginx still buffering the upload before send it to the Node.js.
+
+I found a 'bug' in the node-static, I fixed it and sent a [pull request #54](https://github.com/cloudhead/node-static/pull/54) to project.
 
 ####[socket.io](http://socket.io)
 
-I used socket.io to emit the upload progress to the client, it has lot of fallbacks and is fully compatible with the Challenge requirements ```IE > 6, Firefox and Chrome```. 
+I could use a 'cache' variable with a list of uploads with an indetifier, similar to Apache and Nginx modules, and pooling with ajax an url.
+
+    // app.js
+    var uploads = new Array();
+    // when the server receives a new upload request
+    uploads[request.query['X-Progress-ID']] = {percentage: 0, path: ''};
+
+or Flash.
+
+But I found socket.io better to emit the upload progress to the client, it has lot of fallbacks, making it fully compatible most used browsers.
 
 ##Uploader client Rails
 
