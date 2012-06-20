@@ -32,5 +32,4 @@ $ ->
 	showUploadFilePath = (file) ->
 		fullFilePath = "#{uploaderURL}#{file.path}" 
 		$('#upload_file_url').val fullFilePath
-		filePath = "<a href=\"#{fullFilePath}\">#{fullFilePath}</a>"
-		$('#upload_file_path').html filePath
+		$('#upload_file_path').html "<a href=\"#{fullFilePath}\">#{fullFilePath}</a>"
