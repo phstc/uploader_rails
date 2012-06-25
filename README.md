@@ -12,7 +12,7 @@ I decided to split this project into small projects, the [Uploader in Node.js](h
     1. A socket.io connection is opened 
 * When the User Select a file
     1. The Client submits a form to an hidden iFrame targeting to the Node.js Uploader
-    2. While Node.js is receiveing the upload buffer, it emits the received percentage to the client
+    2. While Node.js is receiveing the upload buffer, it emits the received percentage to the Client
     3. The Client receives the upload percentage and update the view
     4. When the upload is finished the Client sets an hidden input with the File Url
 * The User fill the description
