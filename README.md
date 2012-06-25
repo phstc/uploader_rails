@@ -74,12 +74,7 @@ The Rails version is hosted on Heroku.
 
 ##Restrict the upload
 
-<del>To restrict the upload there are two trivials ways to do it or more depends on the context.</del>
+As I decided to develop this Challenge splitting in Rails for the Client and Node.js for the Uploader. I felt that I didn't write much code, Rails makes CRUD operations easy, Node.js makes the upload easy, mixing both resulted in much less code.
 
-<del>If the project are under the same domain/subdomain, the session can be shared, it means that ```user_id``` can be available in Node.js and Rails.</del>
+To write a little bit more code, I wrote a security_hash mechanism to ensure that the upload request is valid. Client and Uploader know the SECRET_KEY, all upload requests must contain security_hash ```md5(SECRET_KEY + timestamp)``` and timestamp.
 
-<del>Other approach is to use a ```security_hash```, something like that ```security_hash = md5(private_key + user_id)```.</del>
-
-As I decided to develop this Challenge, splitting in Rails for the Client and Node.js for Uploader. I felt that I didn't write much code, Rails makes CRUD operations easy, Node.js makes the upload easy, mixing both == less code.
-
-Then I decided to write the security_hash mechanism, to ensure that the upload request is valid. Client and Uploader know the SECRET_KEY, all upload request must contain security_hash ```md5(SECRET_KEY + timestamp)``` and timestamp.
