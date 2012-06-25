@@ -50,7 +50,7 @@ I found a 'bug' in the node-static, I fixed it and sent a [pull request #54](htt
 
 I used socket.io to emit the upload progress to the client, it has lot of fallbacks, making it fully compatible most used browsers.
 
-Motivated by this project I created the [node-upload-progress](http://github.com/phstc/node-upload-progress) module to handle upload and progress.
+Motivated by this project I created the [node-upload-progress](http://github.com/phstc/node-upload-progress) module to handle upload and progress. This module does not depends on socket.io, it uses a similar mechanism to [Nginx Upload Progress Module](http://wiki.nginx.org/HttpUploadProgressModule).
 
 ##Uploader client Rails
 
