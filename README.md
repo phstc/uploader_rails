@@ -32,14 +32,6 @@ I like this post "recipe", it makes the server similar as a PaaS, but to do it m
 
 ###Node modules
 
-####[formidable](https://github.com/felixge/node-formidable)
-
-Just to parse the form data.
-
-####[mocha](https://github.com/visionmedia/mocha)
-
-For tests. 
-
 ####[node-static](https://github.com/cloudhead/node-static)
 
 I would like to use Nginx to serve the static content, but even with ```proxy_buffering off```, Nginx still buffering the upload before send it to the Node.js. That's the why I used the node-static to serve the uploaded files. 
@@ -52,9 +44,17 @@ I used socket.io to emit the upload progress to the client, it has lot of fallba
 
 Motivated by this project I created the [node-upload-progress](http://github.com/phstc/node-upload-progress) module to handle upload and progress. This module does not depends on socket.io, it uses a similar mechanism to [Nginx Upload Progress Module](http://wiki.nginx.org/HttpUploadProgressModule).
 
+####[formidable](https://github.com/felixge/node-formidable)
+
+Just to parse the form data.
+
+####[mocha](https://github.com/visionmedia/mocha)
+
+For tests.
+
 ##Uploader client Rails
 
-###Why Rails
+###Why Rails?
 
 Nowadays Ruby became my main programming language, most part of my Ruby projects I used Rails, I'm really productive with them, that's the why I chose Ruby on Rails.
 
@@ -72,7 +72,7 @@ I also added Capyara, it isn't include in the template.
 
 The Rails version is hosted on Heroku.
 
-##Restrict the upload
+##Security hash
 
 As I decided to develop this Challenge splitting in Rails for the Client and Node.js for the Uploader. I felt that I didn't write much code, Rails makes CRUD operations easy, Node.js makes the upload easy, mixing both resulted in much less code.
 
