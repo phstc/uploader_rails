@@ -42,22 +42,15 @@ For tests.
 
 ####[node-static](https://github.com/cloudhead/node-static)
 
-I used the Node.js to serve the uploaded files. I would like to use Nginx to serve the static content, but even with ```proxy_buffering off```, Nginx still buffering the upload before send it to the Node.js.
+I would like to use Nginx to serve the static content, but even with ```proxy_buffering off```, Nginx still buffering the upload before send it to the Node.js. That's the why I used the node-static to serve the uploaded files. 
 
 I found a 'bug' in the node-static, I fixed it and sent a [pull request #54](https://github.com/cloudhead/node-static/pull/54) to project.
 
 ####[socket.io](http://socket.io)
 
-I could use a 'cache' variable with a list of uploads with an indetifier, similar to Apache and Nginx modules, and pooling with ajax an url.
+I used socket.io to emit the upload progress to the client, it has lot of fallbacks, making it fully compatible most used browsers.
 
-    // app.js
-    var uploads = new Array();
-    // when the server receives a new upload request
-    uploads[request.query['X-Progress-ID']] = {percentage: 0, path: ''};
-
-or Flash.
-
-But I found socket.io better to emit the upload progress to the client, it has lot of fallbacks, making it fully compatible most used browsers.
+Motivated by this project I created the [node-upload-progress](http://github.com/phstc/node-upload-progress) module to handle upload and progress.
 
 ##Uploader client Rails
 
