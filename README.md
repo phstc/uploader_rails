@@ -2,6 +2,9 @@ Firstly, thank you for the opportunity, I really enjoyed to learn more about upl
 
 I decided to split this project into small projects, the [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and the [Uplader client in Rails](https://github.com/phstc/uploader_rails). Kind of System of Systems. Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
 
+[![Build Status](https://secure.travis-ci.org/phstc/uploader_rails.png)](http://travis-ci.org/phstc/uploader_rails)
+
+
 ##How it Works
 
 * When an user go to the [superuploads](http://superuploads.herokuapp.com)
