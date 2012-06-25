@@ -64,7 +64,7 @@ It means that I like the Ruby object model, the community... The Ruby ecosystem.
 
 ###Rails enviroment
 
-I used these template http://drone.bz/49748da6-3c22-4b85-b4fe-3346a5865ce5 to create my Rails project.
+I used this template http://drone.bz/49748da6-3c22-4b85-b4fe-3346a5865ce5 to create my Rails project.
 
 ```rails new superuploads --builder=http://drone.bz/49748da6-3c22-4b85-b4fe-3346a5865ce5.rb```
 
