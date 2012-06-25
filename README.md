@@ -7,15 +7,15 @@ I decided to split this project into small projects, the [Uploader in Node.js](h
 
 ##How it Works
 
-* When an user go to the [superuploads](http://superuploads.herokuapp.com)
+* When an User go to the [superuploads](http://superuploads.herokuapp.com)
 * Click in the menu Uploads -> New Upload
     1. A socket.io connection is opened 
-* When the user Select a file
-    1. The Client submits a form to an hidden iFrame, targeting to the Node.js Uploader
-    2. While Node.js is receiveing the upload buffer, it emits the percentage received to the client
-    3. The client receives the upload percentage and update the view
+* When the User Select a file
+    1. The Client submits a form to an hidden iFrame targeting to the Node.js Uploader
+    2. While Node.js is receiveing the upload buffer, it emits the received percentage to the client
+    3. The Client receives the upload percentage and update the view
     4. When the upload is finished the Client sets an hidden input with the File Url
-* The user fill the description
+* The User fill the description
 * Click in save
 * ...
 
