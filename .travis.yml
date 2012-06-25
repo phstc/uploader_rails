@@ -1,5 +1,10 @@
 language: ruby
 rvm:
   - 1.9.2
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
 script:
-  - bundle exec rake db:test:prepare
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+
