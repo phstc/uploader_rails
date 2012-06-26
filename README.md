@@ -23,7 +23,7 @@ I decided to split this project into small projects, the [Uploader in Node.js](h
 
 ###Why Node.js?
 
-I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tried [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version. But in IE7+ the progress feedback didn't work. I also tried other plugins and I noticed the same problem. Only plugins entirely in Flash worked (usually have intrusive UI) then I decided to keep it in Node.js.
+I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tested [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version, but only plugins entirely in Flash worked in all browsers then I decided to keep it in Node.js instead of browser based solutions.
 
 ###Server
 
