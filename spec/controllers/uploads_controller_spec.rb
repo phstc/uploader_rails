@@ -1,19 +1,16 @@
 require 'spec_helper'
 
 describe UploadsController do
-
   describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+    before(:each) { get :index }
+    it { should respond_with(:success) }
+    it { should assign_to(:uploads) }
   end
 
   describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
+    before(:each) { get :new }
+    it { should respond_with(:success) }
+    it { should assign_to(:upload) }
   end
 
   describe "POST 'create'" do
@@ -35,11 +32,10 @@ describe UploadsController do
   end
 
   describe "GET 'show'" do
-    it "returns http success" do
-      upload = FactoryGirl.create :upload
-      get 'show', id: upload.id
-      response.should be_success
-    end
+    let(:upload) { FactoryGirl.create :upload }
+    before(:each) { get :show, id: upload.id }
+    it { should respond_with(:success) }
+    it { should assign_to(:upload).with(upload) }
   end
 
 end

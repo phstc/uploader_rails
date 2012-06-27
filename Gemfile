@@ -25,6 +25,13 @@ group :production do
   gem 'pg'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,9 +49,6 @@ end
 
 gem "therubyracer"
 gem "compass-rails"
-gem "factory_girl_rails", :group => ["development", "test"]
-gem "rspec-rails", :group => ["development", "test"]
-gem "capybara", group: ["test"]
 gem "simplecov", :require => false, :group => :test
 gem "compass_twitter_bootstrap", :git => "git://github.com/vwall/compass-twitter-bootstrap.git", :group => :assets
 gem "simple_form"
