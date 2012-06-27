@@ -4,8 +4,8 @@ describe Upload do
   describe 'Attributes validation' do
     context "Empty attributes" do
       subject { Upload.new }   
-      it { should have(1).error_on(:description) }
-      it { should have(1).error_on(:file_url) }
+      it { should validate_presence_of(:description) }
+      it { should validate_presence_of(:file_url) }
     end
   end
   
