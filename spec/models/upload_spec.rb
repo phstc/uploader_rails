@@ -10,7 +10,7 @@ describe Upload do
   end
   
   describe 'UploadCredential' do
-    context 'Delegation' do
+    context 'Interface' do
       subject { Upload.new }
       it { should respond_to :credential_security_hash }
       it { should respond_to :credential_timestamp }
