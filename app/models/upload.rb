@@ -4,6 +4,10 @@ class Upload < ActiveRecord::Base
   
   delegate :timestamp, :security_hash, to: :credential, prefix: true
   
+  attr_writer :credential
+    
+  private
+  
   def credential
     @credential ||= UploadCredential.new
   end
