@@ -36,13 +36,19 @@ I like this post "recipe", it makes the server similar as a PaaS, but to do it m
 
 I would like to use Nginx to serve the static content, but even with ```proxy_buffering off```, Nginx still buffering the upload before send it to the Node.js. That's the why I used the node-static to serve the uploaded files. 
 
-I found a 'bug' in the node-static, I fixed it and sent a [pull request #54](https://github.com/cloudhead/node-static/pull/54) to project.
+I found a 'bug' in the node-static, I fixed it and sent a [pull request #54](https://github.com/cloudhead/node-static/pull/54) to the project.
+
+Recently [cloudhead](https://github.com/cloudhead) added me as a contributor in the project. I reviewed and merged few pull requests and started adding tests in the project. Firstly, integration tests, they were easier than unit tests in this case. I used [vows](https://github.com/cloudhead/vows), I also sent a [pull request #222](https://github.com/cloudhead/vows/pull/222) to vows.
+
+In a high traffic scenario, I would like to remove the static content server from Node.js, maybe using [HAProxy](http://haproxy.1wt.eu/) proxying to Nginx or Apache and the Uploader.
 
 ####[socket.io](http://socket.io)
 
 I used socket.io to emit the upload progress to the client, it has lot of fallbacks, making it fully compatible most used browsers.
 
 Motivated by this project I created the [node-upload-progress](http://github.com/phstc/node-upload-progress) module to handle upload and progress. This module does not depends on socket.io, it uses a similar mechanism to [Nginx Upload Progress Module](http://wiki.nginx.org/HttpUploadProgressModule).
+
+In a high traffic scenario, I would like to use the node-upload-progress approach instead of socket.io.
 
 ####[formidable](https://github.com/felixge/node-formidable)
 
