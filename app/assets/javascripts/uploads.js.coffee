@@ -18,10 +18,11 @@ $ ->
 			showUploadFilePath(file)
 
 	$('#upload').change ->
-		$('#upload_percentage').html ''
-		$('#upload_error').html ''
-		$('#upload_file_path').html ''
-		$('#form_upload').submit()
+		if $(this).val() != ''
+			$('#upload_percentage').html ''
+			$('#upload_error').html ''
+			$('#upload_file_path').html ''
+			$('#form_upload').submit()
 
 	showUploadPercentage = (percentage) ->
 		$('#upload_percentage').html "#{percentage}%"
