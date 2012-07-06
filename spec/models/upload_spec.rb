@@ -30,7 +30,7 @@ describe Upload do
         UploadCredential.any_instance.should_receive(:security_hash).and_return 'abcd'
         UploadCredential.any_instance.should_receive(:timestamp).and_return 1234
         subject.credential_security_hash.should eq 'abcd'
-        subject.credential_timestamp.should eq 12345
+        subject.credential_timestamp.should eq 1234
       end
     end
   end
