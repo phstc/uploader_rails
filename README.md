@@ -1,34 +1,33 @@
 It's my solution to the Code Challenge [File Upload with Progress](https://github.com/phstc/uploader_rails/blob/master/BackendDeveloperChallengeUpdated.pdf).
 
-I decided to split this project into small projects, the [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and the [Uplader client in Rails](https://github.com/phstc/uploader_rails). It's a kind of System of Systems, Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
+I decided to split this project into two small projects, the [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and the [Uplader client in Rails](https://github.com/phstc/uploader_rails). It's a kind of System of Systems, Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
 
 [![Build Status](https://secure.travis-ci.org/phstc/uploader_rails.png)](http://travis-ci.org/phstc/uploader_rails)
 
 
 ##How it Works
 
-* When an User go to the [superuploads](http://superuploads.herokuapp.com)
+* When an user go to the [superuploads](http://superuploads.herokuapp.com)
 * Click in the menu Uploads -> New Upload
     1. A socket.io connection is opened 
-* When the User Select a file
-    1. The Client submits a form to an hidden iFrame targeting to the Node.js Uploader
-    2. While Node.js is receiveing the upload buffer, it emits the received percentage to the Client
-    3. The Client receives the upload percentage and update the view
-    4. When the upload is finished the Client sets an hidden input with the File Url
-* The User fill the description
-* Click in save
+* When an user select a file
+    1. The client submits a form to a hidden iFrame targeting the node.js uploader
+    2. While uploader is receiveing the upload buffer, it emits the received percentage to the client
+    3. The client receives the upload percentage and update the view
+    4. When the upload is finished the client sets an hidden input with the file url
+* The user fill the description & save
 * ...
 
 ##Uploder Node.js
 
 ###Why Node.js?
 
-I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tested [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version, but only plugins entirely in Flash worked in all browsers then I decided to keep it in Node.js instead of browser based solutions.
+I could do the Uploader using XmlHttpRequest or Flash, there are lot of cross-browser plugins for that, I also tested [file-uploader](https://github.com/valums/file-uploader), there is a [branch](https://github.com/phstc/uploader_rails/tree/valums-file-uploader) with this version, but only plugins entirely in Flash worked in all browsers then I decided to keep it in Node.js instead of browser based solutions. BTW... I don't like the idea to use Flash.
 
 ###Server
 
 To configure Node.js on Amazon EC2, I followed my post [Configurando o Node.js no Amazon EC2](http://pablocantero.com/blog/2012/01/04/configurando-o-node-js-no-amazon-ec2/) (disabling Nginx). 
-I like this post "recipe", it makes the server similar as a PaaS, but to do it more AutoScaling focused, it needs a different approach, add the Server SSH Keys in the GitHub, create an image, an initialization script to clone the repository, CloudWatch and ELB.
+I like this post "recipe", it makes the server similar as a PaaS, but to do it more AutoScaling focused, it needs a different approach e.g. add the Server SSH Keys in the GitHub, create an image, an initialization script to clone the repository, CloudWatch and ELB.
 
 ###Node modules
 
