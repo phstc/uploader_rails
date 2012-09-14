@@ -1,6 +1,6 @@
 It's my solution to the Code Challenge [File Upload with Progress](https://github.com/phstc/uploader_rails/blob/master/BackendDeveloperChallengeUpdated.pdf).
 
-I decided to split this project into two small projects, the [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and the [Uplader client in Rails](https://github.com/phstc/uploader_rails). It's a kind of System of Systems, Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
+I decided to split the challenge into two small projects, an [Uploader in Node.js](https://github.com/phstc/uploader_nodejs) and an [Uplader client in Rails](https://github.com/phstc/uploader_rails). It's a kind of System of Systems concept. Node.js fits better for the upload (event-driven, non-blocking I/O) and Rails fits better for the client (gems, community, maturity etc).
 
 [![Build Status](https://secure.travis-ci.org/phstc/uploader_rails.png)](http://travis-ci.org/phstc/uploader_rails)
 
